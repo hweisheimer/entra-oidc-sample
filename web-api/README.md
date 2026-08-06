@@ -21,7 +21,7 @@ Microsoft Graph via the on-behalf-of (OBO) flow; the rest comes from the token's
 
 ## Azure setup
 
-This sample reuses the same app registration as `web-ui` (`1ea0b4c7-c225-425c-acd3-39271b90de48`)
+This sample reuses the same app registration as `web-ui`
 and exposes an API from it:
 
 1. In the app registration, go to **Expose an API** and add scope `impersonate_user`
@@ -47,9 +47,3 @@ dotnet run
 The API listens on `https://localhost:7100` (see `Properties/launchSettings.json`) and allows
 CORS from `http://localhost:5173`, the Vite dev server for `web-ui`.
 
-## Calling it from the SPA
-
-`web-ui` doesn't call this API yet. To wire it up, acquire a token for
-`api://1ea0b4c7-c225-425c-acd3-39271b90de48/impersonate_user` with
-`instance.acquireTokenSilent(loginRequest)` and send it as `Authorization: Bearer <token>`
-on a request to `https://localhost:7100/api/profile`.
